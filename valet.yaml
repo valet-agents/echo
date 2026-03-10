@@ -1,0 +1,17 @@
+name: echo
+display_name: Echo
+description: Echoes Slack messages back to the channel they came from
+category: utilities
+connectors:
+  - catalog: slack
+    description: Slack MCP server for posting messages
+    slot_descriptions:
+      SLACK_TOKEN: Slack bot token (xoxb-...) with chat:write scope
+channels:
+  - catalog: slack-events
+    description: Receives Slack messages via the Events API
+    events:
+      - message
+      - app_mention
+    slot_descriptions:
+      SLACK_SIGNING_SECRET: Slack app signing secret for request verification
