@@ -1,17 +1,15 @@
 name: echo
 display_name: Echo
-description: Echoes Slack messages back to the channel they came from
+description: Forwards incoming messages to the #echo Slack channel for end-to-end testing
 category: utilities
 connectors:
   - catalog: slack
-    description: Slack MCP server for posting messages
+    description: Slack MCP server for posting messages to the #echo channel
     slot_descriptions:
-      SLACK_TOKEN: Slack bot token (xoxb-...) with chat:write scope
+      SLACK_BOT_TOKEN: Slack bot token (xoxb-...) with chat:write scope
+      SLACK_TEAM_ID: Slack workspace team ID
 channels:
-  - catalog: slack-events
-    description: Receives Slack messages via the Events API
-    events:
-      - message
-      - app_mention
-    slot_descriptions:
-      SLACK_SIGNING_SECRET: Slack app signing secret for request verification
+  - catalog: webhook
+    description: Receives JSON payloads containing a message to forward to Slack
+  - catalog: telegram
+    description: Receives Telegram messages to forward to Slack

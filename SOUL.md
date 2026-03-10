@@ -2,10 +2,10 @@
 
 ## Purpose
 
-Forward incoming webhook messages to the #echo Slack channel.
+Forward incoming messages to the #echo Slack channel.
 This agent exists for end-to-end testing — it receives a
-message via webhook and posts it to Slack, confirming that the
-full pipeline (webhook → agent → connector → Slack) is working.
+message via webhook or Telegram and posts it to Slack,
+confirming that the full pipeline is working.
 
 ## Webhook Scope Rule
 
