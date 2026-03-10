@@ -1,10 +1,10 @@
 name: echo
 display_name: Echo
-description: Forwards incoming messages to the #echo Slack channel for end-to-end testing
+description: "Forwards incoming messages to the #echo Slack channel for end-to-end testing"
 category: utilities
 connectors:
   - catalog: slack
-    description: Slack MCP server for posting messages to the #echo channel
+    description: "Slack MCP server for posting messages to the #echo channel"
     slot_descriptions:
       SLACK_BOT_TOKEN: Slack bot token (xoxb-...) with chat:write scope
       SLACK_TEAM_ID: Slack workspace team ID
