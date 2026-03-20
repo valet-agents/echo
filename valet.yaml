@@ -9,7 +9,7 @@ connectors:
       SLACK_BOT_TOKEN: Slack bot token (xoxb-...) with chat:write scope
       SLACK_TEAM_ID: Slack workspace team ID
 channels:
-  - catalog: webhook
+  - catalog: slack-webhook
     description: Receives JSON payloads containing a message to forward to Slack
   - catalog: telegram
     description: Receives Telegram messages to forward to Slack
