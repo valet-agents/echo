@@ -2,6 +2,34 @@ name: echo
 display_name: Echo
 description: "Forwards incoming messages to the #echo Slack channel for end-to-end testing"
 category: utilities
+example:
+  prompt: "Echo this back: hello."
+
+story:
+  hero: "A test harness that echoes any inbound webhook into Slack."
+  subheadline: >-
+    Send a JSON payload via webhook or a Telegram message and Echo
+    posts it to your #echo Slack channel verbatim — useful for
+    verifying connectors and channels end-to-end.
+  steps:
+    - role: trigger
+      title: "A payload arrives via webhook or Telegram."
+      body: >-
+        Any incoming JSON request or Telegram message kicks off the
+        agent — no auth, no schema enforcement, just receive.
+      catalog: slack-webhook
+    - role: action
+      title: "Echo formats the payload."
+      body: >-
+        Wraps the message body, headers, and source into a single
+        Slack-friendly post — preserving the original text untouched.
+    - role: outcome
+      title: "The same content appears in Slack."
+      body: >-
+        Posts to the #echo channel via the Slack MCP server, so you
+        can watch the full request/response loop end-to-end.
+      catalog: slack-mcp
+
 connectors:
   - catalog: slack-mcp
     description: "Slack MCP server for posting messages to the #echo channel"
